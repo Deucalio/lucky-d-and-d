@@ -1,85 +1,72 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { CountdownTimer } from "@/components/countdown-timer"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CountdownTimer } from "@/components/countdown-timer";
+import Link from "next/link";
 
 const slides = [
   {
-    id: 1,
-    title: "Win Your Dream Car",
-    subtitle: "Luxury vehicles waiting for you",
-    description: "Enter our exclusive car lottery and drive away with premium automobiles worth over $100,000",
-    video: "/placeholder.svg?height=500&width=800", // Replace with your actual GIF URL
-    cta: "Browse Cars",
-    href: "/catalogue?category=automotive",
-    gradient: "from-blue-900/90 to-purple-900/90",
-    hasVideo: true,
-  },
-  {
     id: 2,
-    title: "MEGA JACKPOT",
-    subtitle: "Golden Opportunity",
-    description: "Win amazing gold prizes and cash rewards",
-    image: "/images/jackpot-slide.png",
-    cta: "Enter Jackpot",
-    href: "/catalogue?category=gold",
-    gradient: "from-yellow-300 via-yellow-400 to-yellow-500",
-    isJackpot: true,
-    jackpotAmount: "250,000",
-    currency: "USD",
-    participants: 1247,
-    endDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000 + 13 * 60 * 60 * 1000 + 45 * 60 * 1000), // 2 days, 13 hours, 45 minutes from now
-  },
-  {
-    id: 3,
-    title: "Tech Revolution",
-    subtitle: "Latest gadgets & devices",
-    description: "Get your hands on the newest technology including smartphones, laptops, and smart home devices",
-    image: "/placeholder.svg?height=500&width=800",
-    cta: "View Tech",
+    title: "Mega Tech Deals",
+    subtitle: "Unbeatable offers on gadgets",
+    description:
+      "Get the latest tech gadgets with exclusive discounts and offers on smartphones, laptops, and more.",
+    image: "/images/tech-deals-slide.png", // Replace with actual tech image URL
+    cta: "Shop Tech",
     href: "/catalogue?category=technology",
     gradient: "from-purple-900/90 to-indigo-900/90",
   },
   {
+    id: 3,
+    title: "Home Essentials Sale",
+    subtitle: "Upgrade your living space",
+    description:
+      "Explore stylish home goods and furniture to elevate your living space at great prices.",
+    image: "/images/home-essentials-slide.png", // Replace with actual home essentials image URL
+    cta: "Shop Home Goods",
+    href: "/catalogue?category=home",
+    gradient: "from-green-900/90 to-yellow-900/90",
+  },
+  {
     id: 4,
-    title: "Cash Prizes",
-    subtitle: "Pure money rewards",
-    description: "Win substantial cash prizes with no strings attached - spend it however you want",
-    image: "/placeholder.svg?height=500&width=800",
-    cta: "Win Cash",
-    href: "/catalogue?category=cash",
+    title: "Cashback Offers",
+    subtitle: "Instant rewards and savings",
+    description:
+      "Enjoy cashback offers on your purchases, making every shopping experience even more rewarding.",
+    image: "/images/cashback-offers-slide.png", // Replace with actual cashback image URL
+    cta: "Claim Cashback",
+    href: "/catalogue?category=offers",
     gradient: "from-orange-900/90 to-red-900/90",
   },
-]
+];
 
 export function HeroSlider() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying) return;
 
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
 
-    return () => clearInterval(timer)
-  }, [isAutoPlaying])
+    return () => clearInterval(timer);
+  }, [isAutoPlaying]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-  }
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
+    setCurrentSlide(index);
+  };
 
   return (
     <div
@@ -96,8 +83,8 @@ export function HeroSlider() {
               index === currentSlide
                 ? "opacity-100 translate-x-0"
                 : index < currentSlide
-                  ? "opacity-0 -translate-x-full"
-                  : "opacity-0 translate-x-full"
+                ? "opacity-0 -translate-x-full"
+                : "opacity-0 translate-x-full"
             }`}
           >
             {/* Background */}
@@ -120,11 +107,15 @@ export function HeroSlider() {
                     className="w-full h-full object-cover"
                   />
                 </video>
-                <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient}`} />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-r ${slide.gradient}`}
+                />
               </div>
             ) : slide.isJackpot ? (
               /* Jackpot Slide Design */
-              <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`}>
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`}
+              >
                 {/* Animated Background Pattern */}
                 <div className="absolute inset-0 opacity-20">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse" />
@@ -146,7 +137,9 @@ export function HeroSlider() {
                     backgroundImage: `url(${slide.image})`,
                   }}
                 />
-                <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient}`} />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-r ${slide.gradient}`}
+                />
               </div>
             )}
 
@@ -162,7 +155,9 @@ export function HeroSlider() {
                         <div className="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-b from-gray-200 to-gray-400 rounded-full relative overflow-hidden border-4 border-gray-300 shadow-2xl">
                           {/* Coins inside jar */}
                           <div className="absolute inset-2 bg-gradient-to-b from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
-                            <div className="text-4xl md:text-5xl animate-bounce">💰</div>
+                            <div className="text-4xl md:text-5xl animate-bounce">
+                              💰
+                            </div>
                           </div>
                           {/* Floating coins */}
                           <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -170,7 +165,9 @@ export function HeroSlider() {
                           </div>
                         </div>
                         {/* Hand dropping coin */}
-                        <div className="absolute -top-16 -right-8 text-4xl animate-pulse">✋</div>
+                        <div className="absolute -top-16 -right-8 text-4xl animate-pulse">
+                          ✋
+                        </div>
                       </div>
                     </div>
 
@@ -183,16 +180,24 @@ export function HeroSlider() {
                               key={i}
                               className="w-16 h-8 md:w-20 md:h-10 bg-gradient-to-b from-yellow-300 to-yellow-600 rounded-sm shadow-lg border border-yellow-700 flex items-center justify-center transform hover:scale-105 transition-transform"
                               style={{
-                                transform: `rotate(${(i % 2) * 5 - 2.5}deg) translateY(${i * -2}px)`,
+                                transform: `rotate(${
+                                  (i % 2) * 5 - 2.5
+                                }deg) translateY(${i * -2}px)`,
                               }}
                             >
-                              <div className="text-xs font-bold text-yellow-900">GOLD</div>
+                              <div className="text-xs font-bold text-yellow-900">
+                                GOLD
+                              </div>
                             </div>
                           ))}
                         </div>
                         {/* Sparkle effects */}
-                        <div className="absolute -top-4 -right-4 text-2xl animate-spin">✨</div>
-                        <div className="absolute -bottom-4 -left-4 text-xl animate-pulse">💎</div>
+                        <div className="absolute -top-4 -right-4 text-2xl animate-spin">
+                          ✨
+                        </div>
+                        <div className="absolute -bottom-4 -left-4 text-xl animate-pulse">
+                          💎
+                        </div>
                       </div>
                     </div>
 
@@ -209,19 +214,26 @@ export function HeroSlider() {
                           <div className="text-3xl md:text-5xl lg:text-6xl font-bold text-yellow-400 mb-2">
                             ${slide.jackpotAmount}
                           </div>
-                          <div className="text-lg md:text-xl text-yellow-200">{slide.currency}</div>
+                          <div className="text-lg md:text-xl text-yellow-200">
+                            {slide.currency}
+                          </div>
                         </div>
                       </div>
 
                       {/* Enhanced Countdown Timer */}
                       <div className="flex justify-center lg:justify-end">
-                        <CountdownTimer targetDate={slide.endDate!} className="scale-90 md:scale-100" />
+                        <CountdownTimer
+                          targetDate={slide.endDate!}
+                          className="scale-90 md:scale-100"
+                        />
                       </div>
 
                       {/* Participants with animation */}
                       <div className="bg-gray-900/60 backdrop-blur-sm rounded-xl p-3 inline-block">
                         <div className="text-xl md:text-2xl font-bold text-white">
-                          <span className="text-yellow-400 animate-pulse">{slide.participants.toLocaleString()}</span>{" "}
+                          <span className="text-yellow-400 animate-pulse">
+                            {slide.participants.toLocaleString()}
+                          </span>{" "}
                           participants
                         </div>
                       </div>
@@ -249,10 +261,18 @@ export function HeroSlider() {
                         <p className="text-purple-200 text-sm md:text-base font-medium mb-2 opacity-90">
                           {slide.subtitle}
                         </p>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">{slide.title}</h1>
-                        <p className="text-gray-200 text-lg md:text-xl leading-relaxed max-w-xl">{slide.description}</p>
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
+                          {slide.title}
+                        </h1>
+                        <p className="text-gray-200 text-lg md:text-xl leading-relaxed max-w-xl">
+                          {slide.description}
+                        </p>
                       </div>
-                      <Button asChild size="lg" className="bg-white text-gray-900 hover:bg-gray-100 text-lg px-8 py-3">
+                      <Button
+                        asChild
+                        size="lg"
+                        className="bg-white text-gray-900 hover:bg-gray-100 text-lg px-8 py-3"
+                      >
                         <Link href={slide.href}>
                           {slide.cta}
                           <ArrowRight className="ml-2 h-5 w-5" />
@@ -291,7 +311,9 @@ export function HeroSlider() {
           <button
             key={index}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? "bg-white scale-110" : "bg-white/50 hover:bg-white/70"
+              index === currentSlide
+                ? "bg-white scale-110"
+                : "bg-white/50 hover:bg-white/70"
             }`}
             onClick={() => goToSlide(index)}
           />
@@ -305,5 +327,5 @@ export function HeroSlider() {
         </span>
       </div>
     </div>
-  )
+  );
 }
