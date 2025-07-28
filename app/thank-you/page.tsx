@@ -91,7 +91,7 @@ export default function ThankYouPage() {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: "Lucky Deals Purchase",
+        title: "Lucky D&D Purchase",
         text: `I just purchased a ${mockOrder.product.title} lottery ticket!`,
         url: window.location.href,
       })
@@ -203,7 +203,7 @@ export default function ThankYouPage() {
                   <div className="relative z-10">
                     <div className="flex justify-between items-start mb-6">
                       <div>
-                        <h3 className="text-xl font-bold">Lucky Deals & Draws</h3>
+                        <h3 className="text-xl font-bold">Lucky D&D </h3>
                         <p className="text-purple-200 text-sm">Premium Lottery Ticket</p>
                       </div>
                       <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">

@@ -168,7 +168,7 @@ export default function WalletPage() {
           <h1 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-purple-300 to-violet-300 bg-clip-text text-transparent mb-4">
             Wallet
           </h1>
-          <p className="text-xl text-gray-400">Manage your funds, cards, and lottery tickets</p>
+          <p className="text-xl text-gray-400">Manage your funds</p>
         </div>
 
         {/* Wallet Balance */}
@@ -180,7 +180,7 @@ export default function WalletPage() {
                   <Wallet className="h-8 w-8 text-purple-300" />
                   <h2 className="text-2xl font-bold text-white">Wallet Balance</h2>
                 </div>
-                <p className="text-purple-200">Available funds for lottery purchases</p>
+                <p className="text-purple-200">Available funds for products purchases</p>
               </div>
               <Button
                 variant="ghost"
@@ -197,15 +197,15 @@ export default function WalletPage() {
                 <div className="text-3xl font-bold text-white mb-1">
                   {showBalance ? `₨${walletBalance.total.toLocaleString()}` : "₨••••••"}
                 </div>
-                <p className="text-purple-200 text-sm">Total Balance</p>
+                <p className="text-purple-200 text-sm">Total Spent</p>
               </div>
-              <div className="text-center">
+              <div className="text-center hidden">
                 <div className="text-3xl font-bold text-green-400 mb-1">
                   {showBalance ? `₨${walletBalance.available.toLocaleString()}` : "₨••••••"}
                 </div>
                 <p className="text-purple-200 text-sm">Available</p>
               </div>
-              <div className="text-center">
+              <div className="text-center hidden">
                 <div className="text-3xl font-bold text-yellow-400 mb-1">
                   {showBalance ? `₨${walletBalance.pending.toLocaleString()}` : "₨••••••"}
                 </div>
@@ -213,7 +213,7 @@ export default function WalletPage() {
               </div>
             </div>
 
-            <div className="flex gap-4 mt-6">
+            <div className=" gap-4 mt-6 hidden">
               <Button className="flex-1 bg-white text-purple-900 hover:bg-gray-100">
                 <Plus className="mr-2 h-4 w-4" />
                 Add Funds
@@ -230,14 +230,14 @@ export default function WalletPage() {
         </Card>
 
         <Tabs defaultValue="cards" className="space-y-8">
-          <TabsList className="grid w-full grid-cols-3 bg-slate-900/50 border border-slate-700/50">
+          <TabsList className="grid w-full grid-cols-2 bg-slate-900/50 border border-slate-700/50">
             <TabsTrigger value="cards" className="data-[state=active]:bg-purple-600">
               Payment Cards
             </TabsTrigger>
             {/* <TabsTrigger value="lottery" className="data-[state=active]:bg-purple-600">
               Lottery Cards
             </TabsTrigger> */}
-            <TabsTrigger value="transactions" className="data-[state=active]:bg-purple-600">
+            <TabsTrigger value="transactions" className="data-[state=active]:bg-purple-600 hidden">
               Transactions
             </TabsTrigger>
             <TabsTrigger value="settings" className="data-[state=active]:bg-purple-600">
@@ -320,7 +320,7 @@ export default function WalletPage() {
                     {/* Card Content */}
                     <div className="text-white h-full flex flex-col justify-between">
                       <div>
-                        <div className="text-lg font-bold mb-2">Lucky Deals & Draws</div>
+                        <div className="text-lg font-bold mb-2">Lucky D&D </div>
                         <div className="text-sm opacity-80">Digital Lottery Ticket</div>
                       </div>
 

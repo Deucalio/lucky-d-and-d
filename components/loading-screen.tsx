@@ -46,7 +46,7 @@ export function LoadingScreen() {
         {/* Loading text with better animation */}
         <div className="space-y-4">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-300 to-violet-300 bg-clip-text text-transparent animate-pulse">
-            Lucky Deals & Draws
+            Lucky D&D
           </h2>
 
           {/* Improved loading dots */}

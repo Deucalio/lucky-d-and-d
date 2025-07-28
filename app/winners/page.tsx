@@ -13,7 +13,7 @@ const recentWinners = [
     date: "2024-01-20",
     image: "/placeholder.svg?height=80&width=80",
     category: "Machinery",
-    testimonial: "I can't believe I actually won! The process was so transparent and fair. Thank you Lucky Deals!",
+    testimonial: "I can't believe I actually won! The process was so transparent and fair. Thank you Lucky D&D!",
     verified: true,
   },
   {
@@ -25,7 +25,7 @@ const recentWinners = [
     date: "2024-01-18",
     image: "/placeholder.svg?height=80&width=80",
     category: "Money",
-    testimonial: "Amazing experience! The watch arrived exactly as described. Highly recommend Lucky Deals.",
+    testimonial: "Amazing experience! The watch arrived exactly as described. Highly recommend Lucky D&D.",
     verified: true,
   },
   {
@@ -95,7 +95,7 @@ export default function WinnersPage() {
             Our Winners
           </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Celebrating the amazing people who have won life-changing prizes through Lucky Deals. Every winner is
+            Celebrating the amazing people who have won life-changing prizes through Lucky D&D. Every winner is
             verified and their stories are real.
           </p>
         </div>

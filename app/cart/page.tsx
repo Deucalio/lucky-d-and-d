@@ -9,51 +9,52 @@ import { Separator } from "@/components/ui/separator"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 
+let initialCartItems: any = [];
 // Mock cart data
-const initialCartItems = [
-  {
-    id: 1,
-    title: "iPhone 15 Pro Max",
-    description: "Latest flagship smartphone with titanium design",
-    price: 35000,
-    originalPrice: 40000,
-    quantity: 2,
-    image: "/placeholder.svg?height=100&width=100",
-    category: "Apple Technology",
-    drawDate: "2024-02-15",
-    ticketsRemaining: 45,
-    totalTickets: 200,
-    color: "blue",
-  },
-  {
-    id: 2,
-    title: "MacBook Pro M3 Max",
-    description: "16-inch MacBook Pro with M3 Max chip",
-    price: 49000,
-    originalPrice: 55000,
-    quantity: 1,
-    image: "/placeholder.svg?height=100&width=100",
-    category: "Apple Technology",
-    drawDate: "2024-02-20",
-    ticketsRemaining: 92,
-    totalTickets: 150,
-    color: "purple",
-  },
-  {
-    id: 3,
-    title: "Gaming Setup Ultimate",
-    description: "High-end gaming PC with RTX 4090",
-    price: 21000,
-    originalPrice: 25000,
-    quantity: 1,
-    image: "/placeholder.svg?height=100&width=100",
-    category: "Gaming",
-    drawDate: "2024-02-25",
-    ticketsRemaining: 23,
-    totalTickets: 100,
-    color: "orange",
-  },
-]
+// let initialCartItems = [
+//   {
+//     id: 1,
+//     title: "iPhone 15 Pro Max",
+//     description: "Latest flagship smartphone with titanium design",
+//     price: 35000,
+//     originalPrice: 40000,
+//     quantity: 2,
+//     image: "/placeholder.svg?height=100&width=100",
+//     category: "Apple Technology",
+//     drawDate: "2024-02-15",
+//     ticketsRemaining: 45,
+//     totalTickets: 200,
+//     color: "blue",
+//   },
+//   {
+//     id: 2,
+//     title: "MacBook Pro M3 Max",
+//     description: "16-inch MacBook Pro with M3 Max chip",
+//     price: 49000,
+//     originalPrice: 55000,
+//     quantity: 1,
+//     image: "/placeholder.svg?height=100&width=100",
+//     category: "Apple Technology",
+//     drawDate: "2024-02-20",
+//     ticketsRemaining: 92,
+//     totalTickets: 150,
+//     color: "purple",
+//   },
+//   {
+//     id: 3,
+//     title: "Gaming Setup Ultimate",
+//     description: "High-end gaming PC with RTX 4090",
+//     price: 21000,
+//     originalPrice: 25000,
+//     quantity: 1,
+//     image: "/placeholder.svg?height=100&width=100",
+//     category: "Gaming",
+//     drawDate: "2024-02-25",
+//     ticketsRemaining: 23,
+//     totalTickets: 100,
+//     color: "orange",
+//   },
+// ]
 
 const promoOffers = [
   {
@@ -154,15 +155,15 @@ export default function CartPage() {
               </div>
               <h1 className="text-3xl font-bold text-white mb-4">Your cart is empty</h1>
               <p className="text-gray-400 mb-8">
-                Looks like you haven't added any tickets to your cart yet. Browse our amazing collection!
+                Looks like you haven't added any products to your cart yet. Browse our amazing collection!
               </p>
               <Button
                 asChild
                 className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700"
               >
-                <Link href="/catalogue">
+                <Link href="/marketplace">
                   <ShoppingBag className="mr-2 h-4 w-4" />
-                  Browse Lotteries
+                  Browse Products
                 </Link>
               </Button>
             </div>
@@ -197,7 +198,7 @@ export default function CartPage() {
                       <div
                         className={`bg-gradient-to-br ${getCardBackground(item.color)} rounded-xl p-4 aspect-[1.6/1] relative mb-4`}
                       >
-                        <div className="text-white text-sm font-bold mb-2">Lucky Deals & Draws</div>
+                        <div className="text-white text-sm font-bold mb-2">Lucky D&D</div>
                         <div className="absolute bottom-4 left-4 right-4">
                           <div className="text-white text-xs opacity-80 mb-1">Entry Cost</div>
                           <div className="text-white font-medium">₨{item.price.toLocaleString()}</div>

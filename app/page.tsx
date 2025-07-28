@@ -18,12 +18,11 @@ export default function HomePage() {
               <Sparkles className="w-10 h-10 text-white" />
             </div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-purple-300 via-violet-300 to-purple-200 bg-clip-text text-transparent mb-6 tracking-tight">
-              Welcome to Lucky Deals and Draws
+              Welcome to Lucky D&D
             </h2>
             <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
               Your premier destination for{" "}
-              <span className="font-semibold text-purple-300">exclusive lottery experiences</span> with amazing prizes
-              and fair draws.
+              <span className="font-semibold text-purple-300">exclusive products experiences</span> with amazing prices
             </p>
           </div>
 
@@ -33,8 +32,8 @@ export default function HomePage() {
               size="lg"
               className="bg-gradient-to-r from-purple-700 to-violet-800 hover:from-purple-800 hover:to-violet-900 font-semibold text-lg px-8 py-4 h-auto"
             >
-              <Link href="/catalogue">
-                Browse All Cards
+              <Link href="/marketplace">
+                Browse All Products
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -55,9 +54,10 @@ export default function HomePage() {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-800/50 mb-6">
               <Trophy className="w-8 h-8 text-purple-300" />
             </div>
-            <h3 className="font-bold text-2xl mb-4 text-white">Premium Prizes</h3>
+            <h3 className="font-bold text-2xl mb-4 text-white">Premium Products</h3>
             <p className="text-gray-400 leading-relaxed">
-              Win luxury items, cash prizes, and exclusive experiences worth thousands of dollars
+              {/* Win luxury items, cash prizes, and exclusive experiences worth thousands of dollars */}
+              Purchase premium products from our marketplace
             </p>
           </div>
           <div className="text-center p-8 rounded-2xl bg-slate-900/30 border border-slate-800/50 backdrop-blur-sm">
@@ -66,7 +66,7 @@ export default function HomePage() {
             </div>
             <h3 className="font-bold text-2xl mb-4 text-white">Fair & Transparent</h3>
             <p className="text-gray-400 leading-relaxed">
-              Every draw is conducted fairly with complete transparency and verified by independent auditors
+              Every product is conducted fairly with complete transparency and verified by independent auditors
             </p>
           </div>
           <div className="text-center p-8 rounded-2xl bg-slate-900/30 border border-slate-800/50 backdrop-blur-sm">
@@ -75,7 +75,8 @@ export default function HomePage() {
             </div>
             <h3 className="font-bold text-2xl mb-4 text-white">Exclusive Access</h3>
             <p className="text-gray-400 leading-relaxed">
-              Limited cards available for each premium lottery, ensuring better odds for our members
+              {/* Limited cards available for each premium lottery, ensuring better odds for our members */}
+              Exclusive access to premium products
             </p>
           </div>
         </div>

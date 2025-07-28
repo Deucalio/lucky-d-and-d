@@ -152,7 +152,7 @@ export function MarketplaceProductModal({ product, isOpen, onClose, onPurchase }
                 </h4>
                 <div className="bg-gradient-to-br from-purple-600 to-violet-700 rounded-lg p-4 text-white">
                   <div className="flex justify-between items-start mb-3">
-                    <div className="text-sm font-bold">Lucky Deals & Draws</div>
+                    <div className="text-sm font-bold">Lucky D&D</div>
                     <div className="w-6 h-6 bg-yellow-300 rounded-full"></div>
                   </div>
                   <div className="text-lg font-mono mb-3">{product.ticketNumber}</div>

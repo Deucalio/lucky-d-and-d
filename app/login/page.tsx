@@ -43,7 +43,7 @@ export default function LoginPage() {
           <CardTitle className="text-2xl font-bold bg-gradient-to-r from-purple-300 to-violet-300 bg-clip-text text-transparent">
             Welcome Back
           </CardTitle>
-          <p className="text-gray-400">Sign in to your Lucky Deals account</p>
+          <p className="text-gray-400">Sign in to your Lucky D&D account</p>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">

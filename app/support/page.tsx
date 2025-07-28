@@ -252,7 +252,7 @@ export default function SupportPage() {
                     </div>
                   </div>
                   <p className="text-gray-300 mb-4">
-                    Learn the basics of using Lucky Deals and Draws, from account setup to your first lottery purchase.
+                    Learn the basics of using Lucky D&D, from account setup to your first lottery purchase.
                   </p>
                   <Button
                     variant="outline"

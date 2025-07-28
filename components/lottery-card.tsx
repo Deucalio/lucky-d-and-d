@@ -98,7 +98,7 @@ export function LotteryCard({ lottery, featured = false }: LotteryCardProps) {
           <div className="relative z-10 flex flex-col h-full">
             {/* Header */}
             <div className="flex justify-between items-start mb-auto">
-              <div className="text-white font-bold text-lg md:text-xl">Lucky Deals & Draws</div>
+              <div className="text-white font-bold text-lg md:text-xl">Lucky D&D</div>
               <div className="flex items-center">
                 <div className="w-8 h-8 rounded-full bg-yellow-300 border-2 border-yellow-400 flex items-center justify-center">
                   <Ticket className="w-4 h-4 text-yellow-800" />

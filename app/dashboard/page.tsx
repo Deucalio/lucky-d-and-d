@@ -10,14 +10,14 @@ import Link from "next/link"
 
 // Mock user data
 const userData = {
-  name: "Ahmad Khan",
-  totalSpent: 125000,
-  totalWinnings: 45000,
-  activeTickets: 12,
-  completedLotteries: 28,
-  winRate: 18,
+  name: "Hamad Ali",
+  totalSpent: 0,
+  totalWinnings: 0,
+  activeTickets: 0,
+  completedLotteries: 0,
+  winRate: 0,
   memberSince: "January 2023",
-  tier: "Gold",
+  tier: "Member",
   nextTierProgress: 75,
 }
 
@@ -104,14 +104,14 @@ export default function DashboardPage() {
               </h1>
               <p className="text-xl text-gray-400">Welcome back, {userData.name}!</p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className=" items-center gap-4 hidden">
               <Badge className="bg-yellow-600 text-black px-4 py-2 text-lg">
                 <Star className="w-4 h-4 mr-2" />
                 {userData.tier} Member
               </Badge>
-              <Button asChild className="bg-gradient-to-r from-purple-600 to-violet-600">
+              {/* <Button asChild className="bg-gradient-to-r from-purple-600 to-violet-600">
                 <Link href="/catalogue">Browse Lotteries</Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-white">₨{userData.totalSpent.toLocaleString()}</div>
-              <p className="text-xs text-gray-500 flex items-center mt-1">
+              <p className="text-xs text-gray-500 items-center hidden mt-1">
                 <ArrowUpRight className="w-3 h-3 mr-1 text-red-400" />
                 +12% from last month
               </p>
@@ -139,21 +139,21 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-white">₨{userData.totalWinnings.toLocaleString()}</div>
-              <p className="text-xs text-gray-500 flex items-center mt-1">
+              <p className="text-xs text-gray-500 items-center hidden mt-1">
                 <ArrowUpRight className="w-3 h-3 mr-1 text-green-400" />
                 +25% from last month
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-slate-900/60 border-slate-700/50 backdrop-blur-sm">
+          <Card className="bg-slate-900/60 border-slate-700/50 backdrop-blur-sm hidden">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-gray-400">Active Tickets</CardTitle>
               <Target className="h-4 w-4 text-blue-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-white">{userData.activeTickets}</div>
-              <p className="text-xs text-gray-500 flex items-center mt-1">
+              <p className="text-xs text-gray-500 items-center hidden mt-1">
                 <ArrowUpRight className="w-3 h-3 mr-1 text-blue-400" />3 new this week
               </p>
             </CardContent>
@@ -166,7 +166,7 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-white">{userData.winRate}%</div>
-              <p className="text-xs text-gray-500 flex items-center mt-1">
+              <p className="text-xs text-gray-500 hidden items-center mt-1">
                 <ArrowUpRight className="w-3 h-3 mr-1 text-green-400" />
                 Above average
               </p>
@@ -181,10 +181,10 @@ export default function DashboardPage() {
               <CardHeader>
                 <CardTitle className="text-xl text-white flex items-center">
                   <Clock className="mr-2 h-5 w-5 text-purple-400" />
-                  Active Lottery Tickets
+                  Active Purchases
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 hidden">
                 {activeTickets.map((ticket) => (
                   <div
                     key={ticket.id}
@@ -280,14 +280,14 @@ export default function DashboardPage() {
             </Card>
 
             {/* Recent Activity */}
-            <Card className="bg-slate-900/60 border-slate-700/50 backdrop-blur-sm">
+            <Card className="bg-slate-900/60 border-slate-700/50 backdrop-blur-sm ">
               <CardHeader>
                 <CardTitle className="text-lg text-white flex items-center">
                   <Activity className="mr-2 h-5 w-5 text-blue-400" />
                   Recent Activity
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardContent className="space-y-3 hidden">
                 {recentActivity.slice(0, 4).map((activity) => (
                   <div key={activity.id} className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
@@ -338,15 +338,15 @@ export default function DashboardPage() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <Button asChild className="w-full bg-gradient-to-r from-purple-600 to-violet-600">
-                  <Link href="/catalogue">Browse Lotteries</Link>
+                  <Link href="/marketplace">Visit Marketplace</Link>
                 </Button>
-                <Button
+                {/* <Button
                   asChild
                   variant="outline"
                   className="w-full border-slate-600 text-gray-300 hover:bg-slate-800/50 bg-transparent"
                 >
                   <Link href="/marketplace">Visit Marketplace</Link>
-                </Button>
+                </Button> */}
                 <Button
                   asChild
                   variant="outline"

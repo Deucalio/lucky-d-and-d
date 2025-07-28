@@ -9,89 +9,89 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import Link from "next/link"
 
 // Mock wishlist data
-const initialWishlistItems = [
-  {
-    id: 1,
-    title: "Tesla Model S Plaid",
-    description: "Experience the future of automotive technology",
-    price: 140000,
-    originalPrice: 160000,
-    image: "/placeholder.svg?height=200&width=300",
-    category: "Automotive",
-    drawDate: "2024-02-25",
-    ticketsRemaining: 89,
-    totalTickets: 300,
-    color: "red",
-    addedDate: "2024-01-15",
-    prizeValue: 42000000,
-    featured: false,
-  },
-  {
-    id: 2,
-    title: "Rolex Submariner",
-    description: "Luxury Swiss timepiece with precision engineering",
-    price: 63000,
-    originalPrice: 70000,
-    image: "/placeholder.svg?height=200&width=300",
-    category: "Luxury",
-    drawDate: "2024-03-01",
-    ticketsRemaining: 67,
-    totalTickets: 200,
-    color: "gold",
-    addedDate: "2024-01-12",
-    prizeValue: 12600000,
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "Diamond Necklace",
-    description: "Exquisite diamond necklace with 5-carat pendant",
-    price: 105000,
-    originalPrice: 120000,
-    image: "/placeholder.svg?height=200&width=300",
-    category: "Jewelry",
-    drawDate: "2024-03-20",
-    ticketsRemaining: 156,
-    totalTickets: 250,
-    color: "gold",
-    addedDate: "2024-01-10",
-    prizeValue: 21000000,
-    featured: true,
-  },
-  {
-    id: 4,
-    title: "Harley Davidson Sportster",
-    description: "Iconic American motorcycle with premium accessories",
-    price: 119000,
-    originalPrice: 130000,
-    image: "/placeholder.svg?height=200&width=300",
-    category: "Automotive",
-    drawDate: "2024-03-10",
-    ticketsRemaining: 56,
-    totalTickets: 200,
-    color: "orange",
-    addedDate: "2024-01-08",
-    prizeValue: 23800000,
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "iPad Pro M2 12.9",
-    description: "Ultimate iPad experience with M2 chip",
-    price: 11200,
-    originalPrice: 13000,
-    image: "/placeholder.svg?height=200&width=300",
-    category: "Apple Technology",
-    drawDate: "2024-03-05",
-    ticketsRemaining: 145,
-    totalTickets: 200,
-    color: "blue",
-    addedDate: "2024-01-05",
-    prizeValue: 2240000,
-    featured: false,
-  },
-]
-
+// const initialWishlistItems = [
+//   {
+//     id: 1,
+//     title: "Tesla Model S Plaid",
+//     description: "Experience the future of automotive technology",
+//     price: 140000,
+//     originalPrice: 160000,
+//     image: "/placeholder.svg?height=200&width=300",
+//     category: "Automotive",
+//     drawDate: "2024-02-25",
+//     ticketsRemaining: 89,
+//     totalTickets: 300,
+//     color: "red",
+//     addedDate: "2024-01-15",
+//     prizeValue: 42000000,
+//     featured: false,
+//   },
+//   {
+//     id: 2,
+//     title: "Rolex Submariner",
+//     description: "Luxury Swiss timepiece with precision engineering",
+//     price: 63000,
+//     originalPrice: 70000,
+//     image: "/placeholder.svg?height=200&width=300",
+//     category: "Luxury",
+//     drawDate: "2024-03-01",
+//     ticketsRemaining: 67,
+//     totalTickets: 200,
+//     color: "gold",
+//     addedDate: "2024-01-12",
+//     prizeValue: 12600000,
+//     featured: true,
+//   },
+//   {
+//     id: 3,
+//     title: "Diamond Necklace",
+//     description: "Exquisite diamond necklace with 5-carat pendant",
+//     price: 105000,
+//     originalPrice: 120000,
+//     image: "/placeholder.svg?height=200&width=300",
+//     category: "Jewelry",
+//     drawDate: "2024-03-20",
+//     ticketsRemaining: 156,
+//     totalTickets: 250,
+//     color: "gold",
+//     addedDate: "2024-01-10",
+//     prizeValue: 21000000,
+//     featured: true,
+//   },
+//   {
+//     id: 4,
+//     title: "Harley Davidson Sportster",
+//     description: "Iconic American motorcycle with premium accessories",
+//     price: 119000,
+//     originalPrice: 130000,
+//     image: "/placeholder.svg?height=200&width=300",
+//     category: "Automotive",
+//     drawDate: "2024-03-10",
+//     ticketsRemaining: 56,
+//     totalTickets: 200,
+//     color: "orange",
+//     addedDate: "2024-01-08",
+//     prizeValue: 23800000,
+//     featured: false,
+//   },
+//   {
+//     id: 5,
+//     title: "iPad Pro M2 12.9",
+//     description: "Ultimate iPad experience with M2 chip",
+//     price: 11200,
+//     originalPrice: 13000,
+//     image: "/placeholder.svg?height=200&width=300",
+//     category: "Apple Technology",
+//     drawDate: "2024-03-05",
+//     ticketsRemaining: 145,
+//     totalTickets: 200,
+//     color: "blue",
+//     addedDate: "2024-01-05",
+//     prizeValue: 2240000,
+//     featured: false,
+//   },
+// ]
+const initialWishlistItems: any = [];
 const categories = ["All Categories", "Automotive", "Luxury", "Jewelry", "Apple Technology"]
 const sortOptions = ["Recently Added", "Price: Low to High", "Price: High to Low", "Draw Date", "Prize Value"]
 
@@ -166,15 +166,15 @@ export default function WishlistPage() {
               </div>
               <h1 className="text-3xl font-bold text-white mb-4">Your wishlist is empty</h1>
               <p className="text-gray-400 mb-8">
-                Save your favorite lottery tickets here so you can easily find them later!
+                Save your favorite products here so you can easily find them later!
               </p>
               <Button
                 asChild
                 className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700"
               >
-                <Link href="/catalogue">
+                <Link href="/marketplace">
                   <Heart className="mr-2 h-4 w-4" />
-                  Browse Lotteries
+                  Browse Products
                 </Link>
               </Button>
             </div>
@@ -285,7 +285,7 @@ export default function WishlistPage() {
                     </div>
 
                     <div className="text-white h-full flex flex-col justify-between">
-                      <div className="text-sm font-bold">Lucky Deals & Draws</div>
+                      <div className="text-sm font-bold">Lucky D&D </div>
                       <div>
                         <div className="text-xs opacity-80 mb-1">Entry Cost</div>
                         <div className="font-medium">₨{item.price.toLocaleString()}</div>
@@ -393,7 +393,7 @@ export default function WishlistPage() {
                           <Badge className="absolute top-1 left-1 bg-yellow-600 text-black text-xs">Featured</Badge>
                         )}
                         <div className="text-white h-full flex flex-col justify-between">
-                          <div className="text-xs font-bold">Lucky Deals & Draws</div>
+                          <div className="text-xs font-bold">Lucky D&D </div>
                           <div>
                             <div className="text-xs opacity-80">Entry Cost</div>
                             <div className="text-sm font-medium">₨{item.price.toLocaleString()}</div>

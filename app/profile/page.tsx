@@ -1,16 +1,24 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { User, Calendar, Edit, Camera, Shield, Bell, Globe } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Switch } from "@/components/ui/switch"
+import { useState } from "react";
+import {
+  User,
+  Calendar,
+  Edit,
+  Camera,
+  Shield,
+  Bell,
+  Globe,
+} from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Switch } from "@/components/ui/switch";
 
 // Mock user data
 const userData = {
@@ -24,29 +32,29 @@ const userData = {
   totalSpent: 125000,
   totalWinnings: 45000,
   winRate: 18,
-  completedLotteries: 28,
-}
+  completedLotteries: 0,
+};
 
 export default function ProfilePage() {
-  const [isEditing, setIsEditing] = useState(false)
+  const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: userData.name,
     email: userData.email,
     phone: userData.phone,
     location: userData.location,
-  })
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   const handleSave = () => {
     // Save logic here
-    setIsEditing(false)
-  }
+    setIsEditing(false);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950">
@@ -56,7 +64,9 @@ export default function ProfilePage() {
           <h1 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-purple-300 to-violet-300 bg-clip-text text-transparent mb-4">
             Profile
           </h1>
-          <p className="text-xl text-gray-400">Manage your account settings and preferences</p>
+          <p className="text-xl text-gray-400">
+            Manage your account settings and preferences
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -78,18 +88,26 @@ export default function ProfilePage() {
                   </Button>
                 </div>
 
-                <h2 className="text-2xl font-bold text-white mb-2">{userData.name}</h2>
+                <h2 className="text-2xl font-bold text-white mb-2">
+                  {userData.name}
+                </h2>
                 <p className="text-gray-400 mb-4">{userData.email}</p>
 
-                <Badge className="bg-yellow-600 text-black mb-6 px-4 py-2 text-lg">{userData.tier} Member</Badge>
+                <Badge className="bg-yellow-600 text-black mb-6 px-4 py-2 text-lg">
+                  {userData.tier} Member
+                </Badge>
 
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-purple-400">{userData.completedLotteries}</div>
+                    <div className="text-2xl font-bold text-purple-400">
+                      {userData.completedLotteries}
+                    </div>
                     <div className="text-sm text-gray-400">Lotteries</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-green-400">{userData.winRate}%</div>
+                    <div className="text-2xl font-bold text-green-400">
+                      {userData.winRate}%
+                    </div>
                     <div className="text-sm text-gray-400">Win Rate</div>
                   </div>
                 </div>
@@ -108,16 +126,28 @@ export default function ProfilePage() {
           <div className="lg:col-span-2">
             <Tabs defaultValue="personal" className="space-y-6">
               <TabsList className="grid w-full grid-cols-4 bg-slate-900/50 border border-slate-700/50">
-                <TabsTrigger value="personal" className="data-[state=active]:bg-purple-600">
+                <TabsTrigger
+                  value="personal"
+                  className="data-[state=active]:bg-purple-600"
+                >
                   Personal
                 </TabsTrigger>
-                <TabsTrigger value="security" className="data-[state=active]:bg-purple-600">
+                <TabsTrigger
+                  value="security"
+                  className="data-[state=active]:bg-purple-600"
+                >
                   Security
                 </TabsTrigger>
-                <TabsTrigger value="notifications" className="data-[state=active]:bg-purple-600">
+                <TabsTrigger
+                  value="notifications"
+                  className="data-[state=active]:bg-purple-600"
+                >
                   Notifications
                 </TabsTrigger>
-                <TabsTrigger value="preferences" className="data-[state=active]:bg-purple-600">
+                <TabsTrigger
+                  value="preferences"
+                  className="data-[state=active]:bg-purple-600"
+                >
                   Preferences
                 </TabsTrigger>
               </TabsList>
@@ -133,7 +163,9 @@ export default function ProfilePage() {
                       </CardTitle>
                       <Button
                         variant="outline"
-                        onClick={() => (isEditing ? handleSave() : setIsEditing(true))}
+                        onClick={() =>
+                          isEditing ? handleSave() : setIsEditing(true)
+                        }
                         className="border-purple-500 text-purple-400 hover:bg-purple-500/10"
                       >
                         <Edit className="mr-2 h-4 w-4" />
@@ -201,7 +233,9 @@ export default function ProfilePage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-slate-700">
                       <div className="space-y-2">
                         <Label className="text-gray-300">Total Spent</Label>
-                        <div className="text-2xl font-bold text-red-400">₨{userData.totalSpent.toLocaleString()}</div>
+                        <div className="text-2xl font-bold text-red-400">
+                          ₨{userData.totalSpent.toLocaleString()}
+                        </div>
                       </div>
                       <div className="space-y-2">
                         <Label className="text-gray-300">Total Winnings</Label>
@@ -227,12 +261,20 @@ export default function ProfilePage() {
                     <div className="space-y-4">
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
-                          <h3 className="font-medium text-white">Two-Factor Authentication</h3>
-                          <p className="text-sm text-gray-400">Add extra security to your account</p>
+                          <h3 className="font-medium text-white">
+                            Two-Factor Authentication
+                          </h3>
+                          <p className="text-sm text-gray-400">
+                            Add extra security to your account
+                          </p>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Badge className="bg-green-600">Enabled</Badge>
-                          <Button variant="outline" size="sm" className="border-slate-600 text-gray-300 bg-transparent">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="border-slate-600 text-gray-300 bg-transparent"
+                          >
                             Manage
                           </Button>
                         </div>
@@ -240,8 +282,12 @@ export default function ProfilePage() {
 
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
-                          <h3 className="font-medium text-white">Login Notifications</h3>
-                          <p className="text-sm text-gray-400">Get notified of new login attempts</p>
+                          <h3 className="font-medium text-white">
+                            Login Notifications
+                          </h3>
+                          <p className="text-sm text-gray-400">
+                            Get notified of new login attempts
+                          </p>
                         </div>
                         <Switch defaultChecked />
                       </div>
@@ -249,19 +295,33 @@ export default function ProfilePage() {
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
                           <h3 className="font-medium text-white">Password</h3>
-                          <p className="text-sm text-gray-400">Last changed 3 months ago</p>
+                          <p className="text-sm text-gray-400">
+                            Last changed 3 months ago
+                          </p>
                         </div>
-                        <Button variant="outline" size="sm" className="border-slate-600 text-gray-300 bg-transparent">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-slate-600 text-gray-300 bg-transparent"
+                        >
                           Change
                         </Button>
                       </div>
 
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
-                          <h3 className="font-medium text-white">Active Sessions</h3>
-                          <p className="text-sm text-gray-400">Manage your active login sessions</p>
+                          <h3 className="font-medium text-white">
+                            Active Sessions
+                          </h3>
+                          <p className="text-sm text-gray-400">
+                            Manage your active login sessions
+                          </p>
                         </div>
-                        <Button variant="outline" size="sm" className="border-slate-600 text-gray-300 bg-transparent">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-slate-600 text-gray-300 bg-transparent"
+                        >
                           View All
                         </Button>
                       </div>
@@ -283,48 +343,72 @@ export default function ProfilePage() {
                     <div className="space-y-4">
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
-                          <h3 className="font-medium text-white">Lottery Results</h3>
-                          <p className="text-sm text-gray-400">Get notified when lottery results are announced</p>
+                          <h3 className="font-medium text-white">
+                            Lottery Results
+                          </h3>
+                          <p className="text-sm text-gray-400">
+                            Get notified when lottery results are announced
+                          </p>
                         </div>
                         <Switch defaultChecked />
                       </div>
 
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
-                          <h3 className="font-medium text-white">New Lotteries</h3>
-                          <p className="text-sm text-gray-400">Be the first to know about new lottery opportunities</p>
+                          <h3 className="font-medium text-white">
+                            New Lotteries
+                          </h3>
+                          <p className="text-sm text-gray-400">
+                            Be the first to know about new lottery opportunities
+                          </p>
                         </div>
                         <Switch defaultChecked />
                       </div>
 
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
-                          <h3 className="font-medium text-white">Marketplace Updates</h3>
-                          <p className="text-sm text-gray-400">Get updates on marketplace activities</p>
+                          <h3 className="font-medium text-white">
+                            Marketplace Updates
+                          </h3>
+                          <p className="text-sm text-gray-400">
+                            Get updates on marketplace activities
+                          </p>
                         </div>
                         <Switch />
                       </div>
 
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
-                          <h3 className="font-medium text-white">Promotional Offers</h3>
-                          <p className="text-sm text-gray-400">Receive special offers and promotions</p>
+                          <h3 className="font-medium text-white">
+                            Promotional Offers
+                          </h3>
+                          <p className="text-sm text-gray-400">
+                            Receive special offers and promotions
+                          </p>
                         </div>
                         <Switch defaultChecked />
                       </div>
 
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
-                          <h3 className="font-medium text-white">Email Notifications</h3>
-                          <p className="text-sm text-gray-400">Receive notifications via email</p>
+                          <h3 className="font-medium text-white">
+                            Email Notifications
+                          </h3>
+                          <p className="text-sm text-gray-400">
+                            Receive notifications via email
+                          </p>
                         </div>
                         <Switch defaultChecked />
                       </div>
 
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
-                          <h3 className="font-medium text-white">SMS Notifications</h3>
-                          <p className="text-sm text-gray-400">Receive notifications via SMS</p>
+                          <h3 className="font-medium text-white">
+                            SMS Notifications
+                          </h3>
+                          <p className="text-sm text-gray-400">
+                            Receive notifications via SMS
+                          </p>
                         </div>
                         <Switch />
                       </div>
@@ -347,9 +431,14 @@ export default function ProfilePage() {
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
                           <h3 className="font-medium text-white">Language</h3>
-                          <p className="text-sm text-gray-400">Choose your preferred language</p>
+                          <p className="text-sm text-gray-400">
+                            Choose your preferred language
+                          </p>
                         </div>
-                        <Badge variant="outline" className="border-slate-600 text-gray-300">
+                        <Badge
+                          variant="outline"
+                          className="border-slate-600 text-gray-300"
+                        >
                           English
                         </Badge>
                       </div>
@@ -357,9 +446,14 @@ export default function ProfilePage() {
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
                           <h3 className="font-medium text-white">Currency</h3>
-                          <p className="text-sm text-gray-400">Display currency preference</p>
+                          <p className="text-sm text-gray-400">
+                            Display currency preference
+                          </p>
                         </div>
-                        <Badge variant="outline" className="border-slate-600 text-gray-300">
+                        <Badge
+                          variant="outline"
+                          className="border-slate-600 text-gray-300"
+                        >
                           PKR (₨)
                         </Badge>
                       </div>
@@ -367,25 +461,38 @@ export default function ProfilePage() {
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
                           <h3 className="font-medium text-white">Theme</h3>
-                          <p className="text-sm text-gray-400">Choose your preferred theme</p>
+                          <p className="text-sm text-gray-400">
+                            Choose your preferred theme
+                          </p>
                         </div>
-                        <Badge variant="outline" className="border-slate-600 text-gray-300">
+                        <Badge
+                          variant="outline"
+                          className="border-slate-600 text-gray-300"
+                        >
                           Dark
                         </Badge>
                       </div>
 
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
-                          <h3 className="font-medium text-white">Auto-refresh</h3>
-                          <p className="text-sm text-gray-400">Automatically refresh lottery data</p>
+                          <h3 className="font-medium text-white">
+                            Auto-refresh
+                          </h3>
+                          <p className="text-sm text-gray-400">
+                            Automatically refresh lottery data
+                          </p>
                         </div>
                         <Switch defaultChecked />
                       </div>
 
                       <div className="flex justify-between items-center p-4 bg-slate-800/30 rounded-lg">
                         <div>
-                          <h3 className="font-medium text-white">Sound Effects</h3>
-                          <p className="text-sm text-gray-400">Play sounds for notifications and actions</p>
+                          <h3 className="font-medium text-white">
+                            Sound Effects
+                          </h3>
+                          <p className="text-sm text-gray-400">
+                            Play sounds for notifications and actions
+                          </p>
                         </div>
                         <Switch />
                       </div>
@@ -404,5 +511,5 @@ export default function ProfilePage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
