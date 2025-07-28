@@ -23,7 +23,7 @@ export function LoadingScreen() {
         <div className="relative mb-8 flex items-center justify-center">
           <div className="relative">
             {/* Main Infinity Symbol */}
-           <img src="/logo.png" alt="Infinity Symbol" className="h-full w-full" />
+           <img src="/""" alt="Infinity Symbol" className="h-full w-full" />
 
             {/* Floating particles around infinity */}
             <div className="absolute inset-0 pointer-events-none">
