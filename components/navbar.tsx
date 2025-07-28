@@ -193,7 +193,7 @@ export function Navbar() {
                     <div className="px-2 py-1.5">
                       <p className="text-sm font-medium">Hamad Ali</p>
                       <p className="text-xs text-muted-foreground">
-                        john@example.com
+                        hamad141@gmail.com
                       </p>
                     </div>
                     <DropdownMenuSeparator className="bg-slate-800/50" />
@@ -307,7 +307,7 @@ export function Navbar() {
                       <div>
                         <p className="text-sm font-medium">Hamad Ali</p>
                         <p className="text-xs text-muted-foreground">
-                          john@example.com
+                          hamad141@gmail.com
                         </p>
                       </div>
                     </div>
