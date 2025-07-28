@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   Int            @id @default(autoincrement())
+  name                 String         @db.VarChar(255)
+  email                String         @unique @db.VarChar(255)
+  password_hash        String         @db.VarChar(255)
+  created_at           DateTime       @default(now()) @db.Timestamp(6)
+  updated_at           DateTime       @default(now()) @db.Timestamp(6)
+  cnic                 String?        @db.VarChar(255)
+  phone                String?        @db.VarChar(255)
+  user_info            Json?
+  role                 String         @db.VarChar(50)
+  ReferralReferrer     Referral[]     @relation("ReferralReferrer")
+  ReferralReferredUser Referral[]     @relation("ReferralReferredUser")
+  Payment              Payment[]
+  Session              Session[]
+  User_Lottery         User_Lottery[]
+}
+
+model Lottery {
+  id            Int            @id @default(autoincrement())
+  name          String         @db.VarChar(255)
+  status        String         @db.VarChar(50)
+  description   String?
+  prize_pool    Decimal        @db.Decimal(10, 2)
+  entry_cost    Decimal        @db.Decimal(10, 2)
+  total_tickets Int
+  end_time      DateTime       @db.Timestamp(6)
+  created_at    DateTime       @default(now()) @db.Timestamp(6)
+  updated_at    DateTime       @default(now()) @db.Timestamp(6)
+  lottery_info  Json?
+  Payment       Payment[]
+  User_Lottery  User_Lottery[]
+}
+
+model Payment {
+  id              Int      @id @default(autoincrement())
+  user_id         Int
+  lottery_id      Int
+  amount          Decimal  @db.Decimal(10, 2)
+  payment_gateway String   @db.VarChar(255)
+  payment_date    DateTime @default(now()) @db.Timestamp(6)
+  transaction_id  String   @db.VarChar(255)
+  status          String   @db.VarChar(50)
+  payment_detail  Json?
+  Lottery         Lottery  @relation(fields: [lottery_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_payment_lottery")
+  User            User     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_payment_user")
+}
+
+model Session {
+  id            Int      @id @default(autoincrement())
+  session_token String   @unique @db.VarChar(255)
+  user_id       Int
+  expires       DateTime @db.Timestamp(6)
+  created_at    DateTime @default(now()) @db.Timestamp(6)
+  User          User     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_user")
+}
+
+model User_Lottery {
+  id              Int      @id @default(autoincrement())
+  user_id         Int
+  lottery_id      Int
+  invested_amount Decimal? @db.Decimal(10, 2)
+  is_winner       Boolean  @default(false)
+  created_at      DateTime @default(now()) @db.Timestamp(6)
+  Lottery         Lottery  @relation(fields: [lottery_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_lottery")
+  User            User     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_user")
+}
+
+model Referral {
+  id               Int      @id @default(autoincrement())
+  referrer_id      Int // The user who referred
+  referred_user_id Int // The new user who was referred
+  bonus            Decimal  @db.Decimal(10, 2) // Bonus amount awarded to the referrer
+  approved         Boolean  @default(false) // Whether the referral is approved or not
+  created_at       DateTime @default(now()) @db.Timestamp(6)
+  referrer         User     @relation("ReferralReferrer", fields: [referrer_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_referrer")
+  referred_user    User     @relation("ReferralReferredUser", fields: [referred_user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_referred_user")
+}
