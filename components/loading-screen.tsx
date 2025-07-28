@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 export function LoadingScreen() {
-  const [isVisible, setIsVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     // Hide loading screen after 2 seconds
     const timer = setTimeout(() => {
-      setIsVisible(false)
-    }, 2000)
+      setIsVisible(false);
+    }, 2000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
-  if (!isVisible) return null
+  if (!isVisible) return null;
 
   return (
     <div className="fixed inset-0 z-[100] bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center">
@@ -23,7 +23,7 @@ export function LoadingScreen() {
         <div className="relative mb-8 flex items-center justify-center">
           <div className="relative">
             {/* Main Infinity Symbol */}
-           <img src="/""" alt="Infinity Symbol" className="h-full w-full" />
+            <img src="" alt="Infinity Symbol" className="h-full w-full" />
 
             {/* Floating particles around infinity */}
             <div className="absolute inset-0 pointer-events-none">
@@ -107,5 +107,5 @@ export function LoadingScreen() {
         />
       </div>
     </div>
-  )
+  );
 }
