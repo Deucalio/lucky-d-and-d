@@ -79,7 +79,7 @@ export function Navbar() {
             {/* <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-purple-700 to-violet-800 flex items-center justify-center">
               <span className="text-white font-bold text-sm">LD</span>
             </div> */}
-            <img src="" alt="Logo" className="h-44 w-44" />
+            {/* <img src="" alt="Logo" className="h-44 w-44" /> */}
             <span className="font-bold text-xl text-white bg-gradient-to-r from-purple-300 to-violet-300 bg-clip-text text-transparent">
               Lucky D&D
             </span>
