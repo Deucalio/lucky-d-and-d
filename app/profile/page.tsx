@@ -24,7 +24,7 @@ import { Switch } from "@/components/ui/switch";
 const userData = {
   name: "Ahmad Khan",
   email: "ahmad.khan@email.com",
-  phone: "+92 342 2266000",
+  phone: "+03422266000",
   location: "Karachi, Pakistan",
   joinDate: "January 2023",
   tier: "Gold",
