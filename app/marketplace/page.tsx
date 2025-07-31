@@ -735,25 +735,25 @@ export default function MarketplacePage() {
     // You could show a success message here
   };
 
-  const FilterContent = () => (
-    <div className="space-y-8">
+const FilterContent = () => (
+    <div className="space-y-6">
       {/* Search */}
       <div>
-        <h3 className="font-medium text-white mb-3">Search</h3>
+        <h3 className="font-medium text-white mb-3 text-sm">Search</h3>
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
           <Input
             placeholder="Search products..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 bg-slate-800/50 border-slate-700 text-white placeholder:text-gray-400 focus:border-purple-500"
+            className="pl-10 bg-slate-800/50 border-slate-700 text-white placeholder:text-gray-400 focus:border-purple-500 text-sm"
           />
         </div>
       </div>
 
       {/* Quick Filters */}
       <div>
-        <h3 className="font-medium text-white mb-3">Quick Filters</h3>
+        <h3 ClassName="font-medium text-white mb-3 text-sm">Quick Filters</h3>
         <div className="space-y-2">
           <div className="flex items-center space-x-2">
             <Checkbox
@@ -780,8 +780,8 @@ export default function MarketplacePage() {
 
       {/* Categories */}
       <div>
-        <h3 className="font-medium text-white mb-3">Categories</h3>
-        <div className="space-y-2">
+        <h3 className="font-medium text-white mb-3 text-sm">Categories</h3>
+        <div className="space-y-1">
           {categories.map((category) => (
             <button
               key={category.name}
@@ -793,8 +793,8 @@ export default function MarketplacePage() {
               }`}
             >
               <div className="flex justify-between items-center">
-                <span>{category.name}</span>
-                <span className="text-xs text-gray-500">
+                <span className="truncate">{category.name}</span>
+                <span className="text-xs text-gray-500 ml-2">
                   ({category.count})
                 </span>
               </div>
@@ -806,7 +806,7 @@ export default function MarketplacePage() {
       {/* Subcategories */}
       {selectedCategory !== "All Categories" && (
         <div>
-          <h3 className="font-medium text-white mb-3">Subcategories</h3>
+          <h3 className="font-medium text-white mb-3 text-sm">Subcategories</h3>
           <div className="space-y-2">
             {subcategories
               .filter((sub) =>
@@ -826,7 +826,7 @@ export default function MarketplacePage() {
                   />
                   <label
                     htmlFor={subcategory}
-                    className="text-sm text-gray-300"
+                    className="text-sm text-gray-300 truncate"
                   >
                     {subcategory}
                   </label>
@@ -838,8 +838,8 @@ export default function MarketplacePage() {
 
       {/* Brands */}
       <div>
-        <h3 className="font-medium text-white mb-3">Brands</h3>
-        <div className="space-y-2">
+        <h3 className="font-medium text-white mb-3 text-sm">Brands</h3>
+        <div className="space-y-2 max-h-40 overflow-y-auto">
           {brands.map((brand) => (
             <div key={brand} className="flex items-center space-x-2">
               <Checkbox
@@ -847,7 +847,7 @@ export default function MarketplacePage() {
                 checked={selectedBrands.includes(brand)}
                 onCheckedChange={() => toggleBrand(brand)}
               />
-              <label htmlFor={brand} className="text-sm text-gray-300">
+              <label htmlFor={brand} className="text-sm text-gray-300 truncate">
                 {brand}
               </label>
             </div>
@@ -857,7 +857,7 @@ export default function MarketplacePage() {
 
       {/* Price Range */}
       <div>
-        <h3 className="font-medium text-white mb-3">Price Range</h3>
+        <h3 className="font-medium text-white mb-3 text-sm">Price Range</h3>
         <div className="px-2">
           <Slider
             value={priceRange}
@@ -878,7 +878,7 @@ export default function MarketplacePage() {
       <Button
         variant="outline"
         onClick={clearAllFilters}
-        className="w-full border-slate-700 text-gray-300 hover:bg-slate-800/50 bg-transparent"
+        className="w-full border-slate-700 text-gray-300 hover:bg-slate-800/50 bg-transparent text-sm"
       >
         Clear All Filters
       </Button>
@@ -886,11 +886,10 @@ export default function MarketplacePage() {
   );
 
   return (
-    // <div className="min-h-screen bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950">
-    <div className="min-h-screen bg-gradient-to-br bg-black">
+    <div className="min-h-screen bg-black">
 
-      {/* Hero Carousel */}
-      <div className="relative h-[70vh] overflow-hidden">
+      {/* Hero Carousel - Mobile Optimized */}
+      <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div
             key={slide.id}
@@ -904,17 +903,17 @@ export default function MarketplacePage() {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/50" />
-            <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-              <div className="max-w-2xl px-4">
-                <h1 className="text-5xl  md:text-6xl font-light mb-4 tracking-wide bg-gradient-to-r from-purple-300 to-violet-400 bg-clip-text text-transparent">
+            <div className="absolute inset-0 flex items-center justify-center text-center text-white px-4">
+              <div className="max-w-2xl">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-2 sm:mb-4 tracking-wide bg-gradient-to-r from-purple-300 to-violet-400 bg-clip-text text-transparent">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl mb-8 font-light opacity-90">
+                <p className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-8 font-light opacity-90">
                   {slide.subtitle}
                 </p>
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 px-8 py-3 text-lg font-medium"
+                  className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-medium"
                 >
                   {slide.cta}
                 </Button>
@@ -924,12 +923,12 @@ export default function MarketplacePage() {
         ))}
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${
                 index === currentSlide ? "bg-purple-500" : "bg-white/50"
               }`}
             />
@@ -937,21 +936,21 @@ export default function MarketplacePage() {
         </div>
       </div>
 
-      <div className="container  mx-auto px-4 py-12">
+      <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12">
         {/* Curated sections */}
-        <div className="mb-16 space-y-16">
+        <div className="mb-12 sm:mb-16 space-y-12 sm:space-y-16">
           {/* New In */}
           <section>
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-light text-white">New In</h2>
+            <div className="flex items-center justify-between mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl font-light text-white">New In</h2>
               <Button
                 variant="ghost"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-white text-sm sm:text-base"
               >
                 View All <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
               {marketplaceItems
                 .filter((item) => item.isNew)
                 .slice(0, 4)
@@ -969,7 +968,7 @@ export default function MarketplacePage() {
                     onMouseLeave={() => setHoveredProductId(null)}
                   >
                     <CardContent className="p-0">
-                      <div className="relative overflow-hidden mb-4 rounded-lg">
+                      <div className="relative overflow-hidden mb-3 sm:mb-4 rounded-lg">
                         <img
                           src={
                             hoveredProductId === item.id
@@ -980,30 +979,30 @@ export default function MarketplacePage() {
                           alt={item.title}
                           className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <Badge className="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-violet-600 text-white text-xs">
+                        <Badge className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-gradient-to-r from-purple-600 to-violet-600 text-white text-xs">
                           New Season
                         </Badge>
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="absolute top-3 right-3 bg-black/50 hover:bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-black/50 hover:bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 sm:w-10 sm:h-10"
                         >
-                          <Heart className="h-4 w-4" />
+                          <Heart className="h-3 w-3 sm:h-4 sm:w-4" />
                         </Button>
                       </div>
-                      <div className="space-y-1 p-4">
+                      <div className="space-y-1 p-2 sm:p-4">
                         <p className="text-xs text-gray-400 uppercase tracking-wide">
                           {item.brand}
                         </p>
-                        <h3 className="font-medium text-white line-clamp-2">
+                        <h3 className="font-medium text-white line-clamp-2 text-sm sm:text-base">
                           {item.title}
                         </h3>
                         <div className="flex items-center space-x-2">
-                          <span className="font-medium text-green-400">
+                          <span className="font-medium text-green-400 text-sm sm:text-base">
                             ₨{item.price.toLocaleString()}
                           </span>
                           {item.price < item.originalPrice && (
-                            <span className="text-sm text-gray-500 line-through">
+                            <span className="text-xs sm:text-sm text-gray-500 line-through">
                               ₨{item.originalPrice.toLocaleString()}
                             </span>
                           )}
@@ -1017,16 +1016,16 @@ export default function MarketplacePage() {
 
           {/* Best of Sale */}
           <section>
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-light text-white">Best of Sale</h2>
+            <div className="flex items-center justify-between mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl font-light text-white">Best of Sale</h2>
               <Button
                 variant="ghost"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-white text-sm sm:text-base"
               >
                 View All <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
               {marketplaceItems
                 .filter((item) => item.price < item.originalPrice)
                 .slice(0, 4)
@@ -1049,7 +1048,7 @@ export default function MarketplacePage() {
                       onMouseLeave={() => setHoveredProductId(null)}
                     >
                       <CardContent className="p-0">
-                        <div className="relative overflow-hidden mb-4 rounded-lg">
+                        <div className="relative overflow-hidden mb-3 sm:mb-4 rounded-lg">
                           <img
                             src={
                               hoveredProductId === item.id
@@ -1061,29 +1060,29 @@ export default function MarketplacePage() {
                             alt={item.title}
                             className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
                           />
-                          <Badge className="absolute top-3 left-3 bg-red-600 text-white text-xs">
+                          <Badge className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-red-600 text-white text-xs">
                             -{discountPercent}%
                           </Badge>
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="absolute top-3 right-3 bg-black/50 hover:bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-black/50 hover:bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 sm:w-10 sm:h-10"
                           >
-                            <Heart className="h-4 w-4" />
+                            <Heart className="h-3 w-3 sm:h-4 sm:w-4" />
                           </Button>
                         </div>
-                        <div className="space-y-1 p-4">
+                        <div className="space-y-1 p-2 sm:p-4">
                           <p className="text-xs text-gray-400 uppercase tracking-wide">
                             {item.brand}
                           </p>
-                          <h3 className="font-medium text-white line-clamp-2">
+                          <h3 className="font-medium text-white line-clamp-2 text-sm sm:text-base">
                             {item.title}
                           </h3>
                           <div className="flex items-center space-x-2">
-                            <span className="font-medium text-red-400">
+                            <span className="font-medium text-red-400 text-sm sm:text-base">
                               ₨{item.price.toLocaleString()}
                             </span>
-                            <span className="text-sm text-gray-500 line-through">
+                            <span className="text-xs sm:text-sm text-gray-500 line-through">
                               ₨{item.originalPrice.toLocaleString()}
                             </span>
                           </div>
@@ -1095,24 +1094,24 @@ export default function MarketplacePage() {
             </div>
           </section>
 
-          {/* Trending Now */}
+          {/* Trending Now - Horizontal Scroll for Mobile */}
           <section>
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-light text-white">Trending Now</h2>
+            <div className="flex items-center justify-between mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl font-light text-white">Trending Now</h2>
               <Button
                 variant="ghost"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-white text-sm sm:text-base"
               >
                 View All <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
-            <div className="flex space-x-6 overflow-x-auto pb-4">
+            <div className="flex space-x-3 sm:space-x-6 overflow-x-auto pb-4 -mx-3 px-3 sm:mx-0 sm:px-0">
               {marketplaceItems
                 .filter((item) => item.isTrending).slice(0,5)
                 .map((item) => (
                   <Card
                     key={item.id}
-                    className="group cursor-pointer border-0 shadow-none flex-shrink-0 w-64 bg-slate-900/60 hover:bg-slate-900/80 transition-all duration-300"
+                    className="group cursor-pointer border-0 shadow-none flex-shrink-0 w-40 sm:w-64 bg-slate-900/60 hover:bg-slate-900/80 transition-all duration-300"
                     onMouseEnter={() => {
                       setHoveredProductId(item.id);
                       setCurrentImageIndex((prev) => ({
@@ -1123,7 +1122,7 @@ export default function MarketplacePage() {
                     onMouseLeave={() => setHoveredProductId(null)}
                   >
                     <CardContent className="p-0">
-                      <div className="relative overflow-hidden mb-4 rounded-lg">
+                      <div className="relative overflow-hidden mb-3 sm:mb-4 rounded-lg">
                         <img
                           src={
                             hoveredProductId === item.id
@@ -1134,30 +1133,30 @@ export default function MarketplacePage() {
                           alt={item.title}
                           className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <Badge className="absolute top-3 left-3 bg-gradient-to-r bg-purple-700 text-white text-xs">
+                        <Badge className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-gradient-to-r bg-purple-700 text-white text-xs">
                           Trending
                         </Badge>
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="absolute top-3 right-3 bg-black/50 hover:bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-black/50 hover:bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 sm:w-10 sm:h-10"
                         >
-                          <Heart className="h-4 w-4" />
+                          <Heart className="h-3 w-3 sm:h-4 sm:w-4" />
                         </Button>
                       </div>
-                      <div className="space-y-1 p-4">
+                      <div className="space-y-1 p-2 sm:p-4">
                         <p className="text-xs text-gray-400 uppercase tracking-wide">
                           {item.brand}
                         </p>
-                        <h3 className="font-medium text-white line-clamp-2">
+                        <h3 className="font-medium text-white line-clamp-2 text-sm sm:text-base">
                           {item.title}
                         </h3>
                         <div className="flex items-center space-x-2">
-                          <span className="font-medium text-green-400">
+                          <span className="font-medium text-green-400 text-sm sm:text-base">
                             ₨{item.price.toLocaleString()}
                           </span>
                           {item.price < item.originalPrice && (
-                            <span className="text-sm text-gray-500 line-through">
+                            <span className="text-xs sm:text-sm text-gray-500 line-through">
                               ₨{item.originalPrice.toLocaleString()}
                             </span>
                           )}
@@ -1169,59 +1168,59 @@ export default function MarketplacePage() {
             </div>
           </section>
 
-          {/* Trust & Security Section */}
-          <section className="py-16">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-light text-white mb-4">
+          {/* Trust & Security Section - Mobile Optimized */}
+          <section className="py-12 sm:py-16">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl font-light text-white mb-4">
                 Why Choose Our Marketplace
               </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
                 Experience secure, verified transactions with complete buyer
                 protection
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="h-8 w-8 text-white" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <Shield className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <h3 className="text-lg font-medium text-white mb-2">
+                <h3 className="text-base sm:text-lg font-medium text-white mb-2">
                   Buyer Protection
                 </h3>
-                <p className="text-gray-400">
+                <p className="text-sm sm:text-base text-gray-400">
                   100% secure transactions with full refund guarantee
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="h-8 w-8 text-white" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <Award className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <h3 className="text-lg font-medium text-white mb-2">
+                <h3 className="text-base sm:text-lg font-medium text-white mb-2">
                   Verified Sellers
                 </h3>
-                <p className="text-gray-400">
+                <p className="text-sm sm:text-base text-gray-400">
                   All sellers are verified and rated by our community
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="h-8 w-8 text-white" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <Clock className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <h3 className="text-lg font-medium text-white mb-2">
+                <h3 className="text-base sm:text-lg font-medium text-white mb-2">
                   Instant Transfer
                 </h3>
-                <p className="text-gray-400">
+                <p className="text-sm sm:text-base text-gray-400">
                   Digital lottery tickets transferred immediately
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Truck className="h-8 w-8 text-white" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <Truck className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <h3 className="text-lg font-medium text-white mb-2">
+                <h3 className="text-base sm:text-lg font-medium text-white mb-2">
                   24/7 Support
                 </h3>
-                <p className="text-gray-400">
+                <p className="text-sm sm:text-base text-gray-400">
                   Round-the-clock customer service and assistance
                 </p>
               </div>
@@ -1230,7 +1229,7 @@ export default function MarketplacePage() {
         </div>
 
         {/* Main Product Listing */}
-        <div className="flex gap-8">
+        <div className="flex gap-4 sm:gap-8">
           {/* Desktop Filter Sidebar */}
           <div className="hidden lg:block w-80 flex-shrink-0">
             <div className="sticky top-8">
@@ -1246,10 +1245,10 @@ export default function MarketplacePage() {
 
           {/* Main Content */}
           <div className="flex-1">
-            {/* Toolbar */}
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-700/50">
-              <div className="flex items-center space-x-4">
-                <h2 className="text-2xl font-light text-white">
+            {/* Toolbar - Mobile Optimized */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 pb-4 border-b border-slate-700/50 space-y-4 sm:space-y-0">
+              <div className="flex items-center justify-between sm:justify-start space-x-4">
+                <h2 className="text-lg sm:text-2xl font-light text-white">
                   All Products ({sortedItems.length})
                 </h2>
 
@@ -1261,6 +1260,7 @@ export default function MarketplacePage() {
                   <SheetTrigger asChild>
                     <Button
                       variant="outline"
+                      size="sm"
                       className="lg:hidden bg-slate-800/50 border-slate-700 text-white"
                     >
                       <Filter className="h-4 w-4 mr-2" />
@@ -1269,26 +1269,26 @@ export default function MarketplacePage() {
                   </SheetTrigger>
                   <SheetContent
                     side="left"
-                    className="w-80 bg-slate-900 border-slate-700"
+                    className="w-80 bg-slate-900 border-slate-700 p-4"
                   >
-                    <SheetHeader>
+                    <SheetHeader className="mb-4">
                       <SheetTitle className="text-white">Filters</SheetTitle>
                     </SheetHeader>
-                    <div className="mt-6">
+                    <div className="overflow-y-auto max-h-[calc(100vh-100px)]">
                       <FilterContent />
                     </div>
                   </SheetContent>
                 </Sheet>
               </div>
 
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center justify-between sm:justify-end space-x-3 sm:space-x-4">
                 {/* View Mode Toggle */}
                 <div className="flex items-center border border-slate-700 rounded-md">
                   <Button
                     variant={viewMode === "grid" ? "default" : "ghost"}
                     size="sm"
                     onClick={() => setViewMode("grid")}
-                    className="rounded-r-none bg-slate-800/50 text-white hover:bg-slate-700/50"
+                    className="rounded-r-none bg-slate-800/50 text-white hover:bg-slate-700/50 px-2 sm:px-3"
                   >
                     <Grid3X3 className="h-4 w-4" />
                   </Button>
@@ -1296,7 +1296,7 @@ export default function MarketplacePage() {
                     variant={viewMode === "list" ? "default" : "ghost"}
                     size="sm"
                     onClick={() => setViewMode("list")}
-                    className="rounded-l-none bg-slate-800/50 text-white hover:bg-slate-700/50"
+                    className="rounded-l-none bg-slate-800/50 text-white hover:bg-slate-700/50 px-2 sm:px-3"
                   >
                     <List className="h-4 w-4" />
                   </Button>
@@ -1304,7 +1304,7 @@ export default function MarketplacePage() {
 
                 {/* Sort Dropdown */}
                 <Select value={sortBy} onValueChange={setSortBy}>
-                  <SelectTrigger className="w-48 bg-slate-800/50 border-slate-700 text-white">
+                  <SelectTrigger className="w-32 sm:w-48 bg-slate-800/50 border-slate-700 text-white text-sm">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-slate-800 border-slate-700">
@@ -1328,9 +1328,9 @@ export default function MarketplacePage() {
               </div>
             </div>
 
-            {/* Product Grid */}
+            {/* Product Grid - Mobile Optimized */}
             {viewMode === "grid" ? (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
                 {sortedItems.map((item) => {
                   const discountPercent =
                     item.price < item.originalPrice
@@ -1355,7 +1355,7 @@ export default function MarketplacePage() {
                       onMouseLeave={() => setHoveredProductId(null)}
                     >
                       <CardContent className="p-0">
-                        <div className="relative overflow-hidden mb-4 rounded-lg">
+                        <div className="relative overflow-hidden mb-3 sm:mb-4 rounded-lg">
                           <img
                             src={
                               hoveredProductId === item.id
@@ -1369,7 +1369,7 @@ export default function MarketplacePage() {
                           />
 
                           {/* Badges */}
-                          <div className="absolute top-3 left-3 flex flex-col space-y-1">
+                          <div className="absolute top-2 sm:top-3 left-2 sm:left-3 flex flex-col space-y-1">
                             {item.isNew && (
                               <Badge className="bg-gradient-to-r from-purple-600 to-violet-600 text-white text-xs">
                                 New
@@ -1388,44 +1388,44 @@ export default function MarketplacePage() {
                           </div>
 
                           {/* Action Buttons */}
-                          <div className="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="absolute top-2 sm:top-3 right-2 sm:right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity">
                             <Button
                               variant="ghost"
                               size="icon"
-                              className="bg-black/50 hover:bg-black/70 text-white"
+                              className="bg-black/50 hover:bg-black/70 text-white w-8 h-8 sm:w-10 sm:h-10"
                             >
-                              <Heart className="h-4 w-4" />
+                              <Heart className="h-3 w-3 sm:h-4 sm:w-4" />
                             </Button>
                             <Button
                               variant="ghost"
                               size="icon"
                               onClick={() => handleViewDetails(item)}
-                              className="bg-black/50 hover:bg-black/70 text-white"
+                              className="bg-black/50 hover:bg-black/70 text-white w-8 h-8 sm:w-10 sm:h-10"
                             >
-                              <Search className="h-4 w-4" />
+                              <Search className="h-3 w-3 sm:h-4 sm:w-4" />
                             </Button>
                           </div>
 
-                          {/* Quick Add to Cart */}
+                          {/* Quick Add to Cart - Hidden on mobile */}
                           <Button
                             onClick={() => handlePurchase(item.id)}
-                            className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white"
+                            className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white text-sm sm:text-base py-1 sm:py-2 hidden sm:flex items-center justify-center"
                           >
-                            <ShoppingBag className="h-4 w-4 mr-2" />
+                            <ShoppingBag className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                             Quick Buy
                           </Button>
                         </div>
 
-                        <div className="space-y-2 p-4">
+                        <div className="space-y-1 sm:space-y-2 p-2 sm:p-4">
                           <p className="text-xs text-gray-400 uppercase tracking-wide">
                             {item.brand}
                           </p>
-                          <h3 className="font-medium text-white line-clamp-2 group-hover:text-gray-300 transition-colors">
+                          <h3 className="font-medium text-white line-clamp-2 group-hover:text-gray-300 transition-colors text-sm sm:text-base">
                             {item.title}
                           </h3>
                           <div className="flex items-center space-x-2">
                             <span
-                              className={`font-medium ${
+                              className={`font-medium text-sm sm:text-base ${
                                 discountPercent > 0
                                   ? "text-red-400"
                                   : "text-green-400"
@@ -1434,7 +1434,7 @@ export default function MarketplacePage() {
                               ₨{item.price.toLocaleString()}
                             </span>
                             {discountPercent > 0 && (
-                              <span className="text-sm text-gray-500 line-through">
+                              <span className="text-xs sm:text-sm text-gray-500 line-through">
                                 ₨{item.originalPrice.toLocaleString()}
                               </span>
                             )}
@@ -1442,12 +1442,21 @@ export default function MarketplacePage() {
 
                           {/* Seller Info */}
                           <div className="flex items-center justify-between text-xs text-gray-400">
-                            <span>{item.seller}</span>
-                            <div className="flex items-center">
+                            <span className="truncate">{item.seller}</span>
+                            <div className="flex items-center ml-2">
                               <Star className="h-3 w-3 fill-current text-yellow-400 mr-1" />
                               {item.sellerRating}
                             </div>
                           </div>
+
+                          {/* Mobile Buy Button */}
+                          <Button
+                            onClick={() => handlePurchase(item.id)}
+                            className="w-full mt-2 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white text-sm py-2 sm:hidden"
+                          >
+                            <ShoppingBag className="h-3 w-3 mr-2" />
+                            Buy Now
+                          </Button>
                         </div>
                       </CardContent>
                     </Card>
@@ -1455,8 +1464,8 @@ export default function MarketplacePage() {
                 })}
               </div>
             ) : (
-              /* List View */
-              <div className="space-y-4">
+              /* List View - Mobile Optimized */
+              <div className="space-y-3 sm:space-y-4">
                 {sortedItems.map((item) => {
                   const discountPercent =
                     item.price < item.originalPrice
@@ -1472,38 +1481,38 @@ export default function MarketplacePage() {
                       key={item.id}
                       className="group cursor-pointer bg-slate-900/60 border-slate-700/50 hover:bg-slate-900/80 hover:shadow-lg transition-all duration-300"
                     >
-                      <CardContent className="p-6">
-                        <div className="flex space-x-6">
-                          <div className="relative w-32 h-32 flex-shrink-0">
+                      <CardContent className="p-3 sm:p-6">
+                        <div className="flex space-x-3 sm:space-x-6">
+                          <div className="relative w-20 h-20 sm:w-32 sm:h-32 flex-shrink-0">
                             <img
                               src={item.images[0] || "/placeholder.svg"}
                               alt={item.title}
                               className="w-full h-full object-cover rounded-md"
                             />
                             {discountPercent > 0 && (
-                              <Badge className="absolute top-2 left-2 bg-red-600 text-white text-xs">
+                              <Badge className="absolute top-1 sm:top-2 left-1 sm:left-2 bg-red-600 text-white text-xs">
                                 -{discountPercent}%
                               </Badge>
                             )}
                           </div>
 
-                          <div className="flex-1 space-y-3">
+                          <div className="flex-1 space-y-2 sm:space-y-3 min-w-0">
                             <div>
                               <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">
                                 {item.brand}
                               </p>
-                              <h3 className="text-lg font-medium text-white group-hover:text-gray-300 transition-colors">
+                              <h3 className="text-sm sm:text-lg font-medium text-white group-hover:text-gray-300 transition-colors line-clamp-2">
                                 {item.title}
                               </h3>
-                              <p className="text-sm text-gray-400 line-clamp-2">
+                              <p className="text-xs sm:text-sm text-gray-400 line-clamp-2 hidden sm:block">
                                 {item.description}
                               </p>
                             </div>
 
-                            <div className="flex items-center space-x-4">
+                            <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
                               <div className="flex items-center space-x-2">
                                 <span
-                                  className={`text-lg font-medium ${
+                                  className={`text-base sm:text-lg font-medium ${
                                     discountPercent > 0
                                       ? "text-red-400"
                                       : "text-green-400"
@@ -1518,37 +1527,37 @@ export default function MarketplacePage() {
                                 )}
                               </div>
 
-                              <div className="flex items-center text-sm text-gray-400">
-                                <User className="h-4 w-4 mr-1" />
-                                {item.seller}
-                                <Star className="h-4 w-4 fill-current text-yellow-400 ml-2 mr-1" />
+                              <div className="flex items-center text-xs sm:text-sm text-gray-400">
+                                <User className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
+                                <span className="truncate max-w-24 sm:max-w-none">{item.seller}</span>
+                                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-current text-yellow-400 ml-2 mr-1" />
                                 {item.sellerRating}
                               </div>
                             </div>
 
-                            <div className="flex items-center space-x-3">
+                            <div className="flex items-center space-x-2 sm:space-x-3">
                               <Button
                                 onClick={() => handleViewDetails(item)}
                                 variant="outline"
                                 size="sm"
-                                className="border-slate-700 text-gray-300 hover:bg-slate-800/50 bg-transparent"
+                                className="border-slate-700 text-gray-300 hover:bg-slate-800/50 bg-transparent text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
                               >
-                                View Details
+                                Details
                               </Button>
                               <Button
                                 onClick={() => handlePurchase(item.id)}
                                 size="sm"
-                                className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white"
+                                className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2 flex-1 sm:flex-none"
                               >
-                                <ShoppingBag className="h-4 w-4 mr-2" />
+                                <ShoppingBag className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                                 Buy Now
                               </Button>
                               <Button
                                 variant="ghost"
                                 size="sm"
-                                className="text-gray-400 hover:text-white"
+                                className="text-gray-400 hover:text-white p-1 sm:p-2"
                               >
-                                <Heart className="h-4 w-4" />
+                                <Heart className="h-3 w-3 sm:h-4 sm:w-4" />
                               </Button>
                             </div>
                           </div>
@@ -1562,12 +1571,12 @@ export default function MarketplacePage() {
 
             {/* Empty State */}
             {sortedItems.length === 0 && (
-              <div className="text-center py-16">
-                <div className="text-6xl mb-4">🔍</div>
-                <h3 className="text-xl font-medium text-white mb-2">
+              <div className="text-center py-12 sm:py-16 px-4">
+                <div className="text-4xl sm:text-6xl mb-4">🔍</div>
+                <h3 className="text-lg sm:text-xl font-medium text-white mb-2">
                   No products found
                 </h3>
-                <p className="text-gray-400 mb-6">
+                <p className="text-gray-400 mb-6 sm:text-base text-sm">
                   Try adjusting your filters or search terms
                 </p>
                 <Button
@@ -1582,35 +1591,35 @@ export default function MarketplacePage() {
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <section className="mt-24 py-16 bg-gradient-to-r from-purple-900/20 to-violet-900/20 rounded-2xl border border-purple-500/20">
-          <div className="text-center max-w-2xl mx-auto px-8">
-            <h2 className="text-3xl md:text-4xl font-light text-white mb-4">
+        {/* Newsletter Section - Mobile Optimized */}
+        <section className="mt-16 sm:mt-24 py-12 sm:py-16 bg-gradient-to-r from-purple-900/20 to-violet-900/20 rounded-2xl border border-purple-500/20 mx-3 sm:mx-0">
+          <div className="text-center max-w-2xl mx-auto px-4 sm:px-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-white mb-4">
               Never miss a thing
             </h2>
-            <p className="text-lg text-gray-300 mb-8">
+            <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8">
               Sign up for promotions, tailored new arrivals, stock updates and
               more – straight to your inbox
             </p>
             <form
               onSubmit={handleNewsletterSubmit}
-              className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+              className="flex flex-col gap-3 sm:gap-4 max-w-md mx-auto"
             >
-              <div className="flex-1 relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4 sm:h-5 sm:w-5" />
                 <Input
                   type="email"
                   placeholder="Enter your email address"
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   required
-                  className="pl-10 bg-slate-800/50 border-slate-700 text-white placeholder:text-gray-400 focus:border-purple-500 h-12"
+                  className="pl-10 sm:pl-12 bg-slate-800/50 border-slate-700 text-white placeholder:text-gray-400 focus:border-purple-500 h-12 text-sm sm:text-base"
                 />
               </div>
               <Button
                 type="submit"
                 size="lg"
-                className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 px-8 h-12"
+                className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 h-12 text-sm sm:text-base"
               >
                 Subscribe
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -1633,4 +1642,4 @@ export default function MarketplacePage() {
       </div>
     </div>
   );
-}
+} 

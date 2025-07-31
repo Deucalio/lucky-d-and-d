@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { LoadingScreen } from "@/components/loading-screen";
 import { Footer } from "@/components/footer";
 
+
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const roboto = Roboto({
   subsets: ["latin"],

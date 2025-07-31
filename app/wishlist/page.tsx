@@ -364,7 +364,7 @@ export default function WishlistPage() {
                         variant="outline"
                         className="border-slate-600 text-gray-300 hover:bg-slate-800/50 bg-transparent"
                       >
-                        <Link href={`/catalogue/${item.id}`}>
+                        <Link href={`/marketplace/${item.id}`}>
                           <Eye className="h-4 w-4" />
                         </Link>
                       </Button>
@@ -480,7 +480,7 @@ export default function WishlistPage() {
                             variant="outline"
                             className="border-slate-600 text-gray-300 hover:bg-slate-800/50 bg-transparent"
                           >
-                            <Link href={`/catalogue/${item.id}`}>
+                            <Link href={`/marketplace/${item.id}`}>
                               <Eye className="mr-2 h-4 w-4" />
                               View Details
                             </Link>
@@ -513,7 +513,7 @@ export default function WishlistPage() {
               variant="outline"
               className="border-slate-600 text-gray-300 hover:bg-slate-800/50 bg-transparent"
             >
-              <Link href="/catalogue">Continue Shopping</Link>
+              <Link href="/marketplace">Continue Shopping</Link>
             </Button>
           </div>
         </div>

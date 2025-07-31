@@ -5,7 +5,7 @@ import { HeroSlider } from "@/components/hero-slider"
 
 export default function HomePage() {
   return (
-    <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <div className="bg-gradient-to-br bg-black text-white">
       {/* Hero Slider - At the very front */}
       <HeroSlider />
 
@@ -17,7 +17,7 @@ export default function HomePage() {
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-purple-700 to-violet-800 mb-6">
               <Sparkles className="w-10 h-10 text-white" />
             </div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-purple-300 via-violet-300 to-purple-200 bg-clip-text text-transparent mb-6 tracking-tight">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r text-white bg-clip-text text-transparent mb-6 tracking-tight">
               Welcome to Lucky D&D
             </h2>
             <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto font-light leading-relaxed">

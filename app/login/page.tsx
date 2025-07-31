@@ -23,7 +23,7 @@ export default function LoginPage() {
     // Handle login logic here
     console.log("Login attempt:", formData)
     // For demo purposes, redirect back to catalogue
-    router.push("/catalogue")
+    // router.push("/catalogue")
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
