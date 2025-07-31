@@ -905,7 +905,7 @@ const FilterContent = () => (
             <div className="absolute inset-0 bg-black/50" />
             <div className="absolute inset-0 flex items-center justify-center text-center text-white px-4">
               <div className="max-w-2xl">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-2 sm:mb-4 tracking-wide bg-gradient-to-r from-purple-300 to-violet-400 bg-clip-text text-transparent">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-2 sm:mb-4 tracking-wide text-white">
                   {slide.title}
                 </h1>
                 <p className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-8 font-light opacity-90">
